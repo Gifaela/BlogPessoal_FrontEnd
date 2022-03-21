@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+
+ReactDOM.render( // Renderiza (montar a tela por completo)
   <React.StrictMode>
-    <App />
+    <App /> 
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root') 
+  /*
+   <App /> - é um componente em si, eu coloco como se fossem tag's html(Localizado na pasta src>APP.tsx)
+  Montra a tela dentro do elemento root. Esse elemento é uma div que está dentro de um arquivo chamdo index.html 
+  (Localizado na pasta public>index.html)*/
 );
 
 // If you want to start measuring performance in your app, pass a function

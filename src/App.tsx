@@ -1,26 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import Home from './paginas/home/Home'
+
 import './App.css';
 
-function App() {
+//let nome = 'Giulia';
+
+function App() { // dentro do App.tsx que está todo o código que conseguimos visualizar na tela
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //<h1>Hello World</h1>
+    //<h1>{nome}</h1>
+    <Home/>
   );
 }
 
-export default App;
+export default App; // exporta para (pasta src>index.tsx) 
