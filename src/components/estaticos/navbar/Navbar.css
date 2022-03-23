@@ -1,0 +1,12 @@
+.barra{
+    background: linear-gradient(36deg, #330e62 22%, #ee99fc 80%) !important;
+}
+
+.navBarFont{
+    font-family:serif!important;
+    margin-right: 15px !important;
+   
+}
+.cursor{
+    cursor: pointer !important;
+}

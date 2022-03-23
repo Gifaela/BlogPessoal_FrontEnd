@@ -1,12 +1,23 @@
-.titulo{
-    color:rgba(201, 15, 248, 0.788);
-    text-align: center;
-    
-}
+.caixa{
+ display: flex !important;
+ direction: row;
+ justify-content:center !important;
+ align-items: center !important;
 
-.img {
-    width: 310px;
-     height: 213px;
-     display: block;
-     margin: 0 auto;
+ width: 100vw;
+ min-height: calc(100vh - 64px);
+
+ /* Config. do Plano de Fundo */
+ background-image: url(../../assets/castelo.png)!important;
+ background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+}
+.prin{
+display: flex;
+direction: row;
+justify-content: inherit;
+width: 200px;
+height: 200px;
+
 }
