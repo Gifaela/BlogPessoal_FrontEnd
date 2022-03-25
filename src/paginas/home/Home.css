@@ -1,18 +1,24 @@
-.caixa{
+.caixaHome{
  display: flex !important;
  direction: row;
  justify-content:center !important;
  align-items: center !important;
-
- width: 100vw;
- min-height: calc(100vh - 64px);
 
  /* Config. do Plano de Fundo */
  background-image: url(../../assets/castelo.png)!important;
  background-repeat: no-repeat;
  background-size: cover;
  background-position: center;
+ 
+ width: 100vw;
+ min-height: calc(100vh);
 }
+
+.titulo{
+color:white !important;
+font-weight: bold !important;
+}
+
 .prin{
 display: flex;
 direction: row;
@@ -20,4 +26,12 @@ justify-content: inherit;
 width: 200px;
 height: 200px;
 
+}
+.botaoVerPostagem{
+border-color: white !important;
+background-color: #3F51B500!important; 
+color: white !important;
+}
+.postage{
+background-color: white;
 }

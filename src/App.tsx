@@ -1,59 +1,39 @@
-import { Grid } from '@material-ui/core';
 
 import React from 'react';
-
-import Navbar from './components/estaticos/navbar/Navbar'
-import Home from './paginas/home/Home'
-import Footer from './components/estaticos/footer/Footer'
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './components/estaticos/navbar/Navbar';
+import Home from './paginas/home/Home';
+import Footer from './components/estaticos/footer/Footer';
+import Login from './paginas/login/Login';
 
 import './App.css';
 
-//let nome = 'Giulia';
-
-function App() { // dentro do App.tsx que está todo o código que conseguimos visualizar na tela
+function App() {
   return (
-    //<h1>Hello World</h1>
-    //<h1>{nome}</h1>
-    // <Home/>
-
-    <>
-      <Navbar />
-      <Home />
-      <Footer />
-    </>
-
-
-
-
-   /*  ____________________________________________________BOX_AND_GRID_______________________________________________
-   <>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={12}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <Home />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <Home />
-        </Grid>
-      </Grid>
-    </>
+    /*Router Comoponete principal de rotas 
+    Switch informa quais páginas irão mudar
+    Route informa qual a url usada
+    exact é para dizer que é exatamente, para não dar
     */
+    <Router>
+      <Navbar />
+      <Switch>
+        <div style={{minHeight:'100vh'}}>
+        <Route exact path='/'>
+            <Login />
+          </Route>
+          <Route path='/login'>
+            <Login />
+          </Route>
+
+          <Route path='/home'>
+            <Home />
+          </Route>
+
+        </div>
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
-
 export default App; // exporta para (pasta src>index.tsx) 

@@ -1,0 +1,18 @@
+.testos1{
+    font-weight: bold;
+}
+
+.botao{
+background-color: #330e62!important; 
+}
+.text-decarator-none{
+    text-decoration: none;
+}
+.imgMickey{
+background-image:url(../../assets/Mickey.png);
+background-repeat:no-repeat;
+width:100vh;
+min-height: 100vh;
+background-size: cover;
+background-origin:center;
+}

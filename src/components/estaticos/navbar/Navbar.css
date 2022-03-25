@@ -1,3 +1,7 @@
+.cursor{
+    cursor: pointer !important;
+}
+
 .barra{
     background: linear-gradient(36deg, #330e62 22%, #ee99fc 80%) !important;
 }
@@ -5,8 +9,10 @@
 .navBarFont{
     font-family:serif!important;
     margin-right: 15px !important;
+    color: aliceblue;
    
 }
-.cursor{
-    cursor: pointer !important;
+
+.text-decarator-none{
+    text-decoration: none;
 }

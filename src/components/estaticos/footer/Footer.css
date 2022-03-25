@@ -1,22 +1,21 @@
-
 .corPe{
-    background-color:#330e62!important;
-    height: "120px"!important;
+    background-color: #ee99fc;
+    height: 120px;
  
 }
 .corPe2{
-    background-color:#ee99fc!important;
-    height: "120px"!important;
+    background-color:#330e62;
+    height: 60px;
 
 }
-/*.caixa{
-    display: flex !important;
-    direction: row;
-    justify-content:center !important;
-    align-items: center !important;
+.redes{
+font-size: 60px!important;
+color: black;
 }
- background: #330e62!important;
-.cursor{
-    cursor: pointer !important;
+.textos1{
+    color: black;
 }
-*/
+.textos2{
+    color: white;
+    text-decoration: none!important;
+}
