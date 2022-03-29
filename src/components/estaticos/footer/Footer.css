@@ -18,4 +18,5 @@ color: black;
 .textos2{
     color: white;
     text-decoration: none!important;
-}
+} 
+a{text-decoration: none;}

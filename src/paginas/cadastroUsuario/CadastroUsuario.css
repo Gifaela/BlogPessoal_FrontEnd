@@ -1,0 +1,20 @@
+.imgMickeyCadastroLogin{
+    background-image:url(../../assets/Mickey.png);
+    background-repeat:no-repeat;
+    width:100vh;
+    min-height: 100vh;
+    background-size: cover;
+    background-origin:center;
+}
+.textosCadastro{
+    font-weight: bold !important;
+}
+.botaoCadastroCancelar{
+    margin-right: 20px !important;
+    background-color: #330e6200!important; 
+    color: #330e62!important;
+    border: bottom color #330e62!important;
+}
+.botaoCadastroCadastro{
+    background-color: #330e62!important; 
+}

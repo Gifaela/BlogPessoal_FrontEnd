@@ -1,14 +1,15 @@
-.testos1{
-    font-weight: bold;
+.textosLogin{
+    font-weight: bold !important;
+ 
 }
 
-.botao{
+.botaoLogin{
 background-color: #330e62!important; 
 }
 .text-decarator-none{
     text-decoration: none;
 }
-.imgMickey{
+.imgMickeyLogin{
 background-image:url(../../assets/Mickey.png);
 background-repeat:no-repeat;
 width:100vh;

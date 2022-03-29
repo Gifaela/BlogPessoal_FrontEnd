@@ -7,6 +7,7 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 import './Footer.css'
 
+
 function Footer() {
     return (
         <>
