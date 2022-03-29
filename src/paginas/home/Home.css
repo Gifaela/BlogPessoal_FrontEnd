@@ -1,16 +1,23 @@
 .caixaHome{
 
- /* Config. do Plano de Fundo */
- background-image: url(../../assets/castelo.png)!important;
- background-repeat: no-repeat;
- background-size: cover;
- background-position: center;
- 
- width: 100vw;
- min-height: calc(100vh );
+
+ width: 100vw!important;
+ /* min-height: calc(100vh-20px); */
 
 }
-.titulo{
+
+.back{
+    /* Config. do Plano de Fundo */
+    background-image: url(../../assets/castelo.png)!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+ height: 100vh!important;
+
+}
+
+.tituloHome{
 color:white !important;
 font-weight: bold !important;
 }

@@ -8,9 +8,10 @@
     height: 60px;
 
 }
-.redes{
+.redes:hover{
 font-size: 60px!important;
 color: black;
+
 }
 .textos1{
     color: black;
@@ -19,4 +20,6 @@ color: black;
     color: white;
     text-decoration: none!important;
 } 
+
 a{text-decoration: none;}
+/* onmousemove='mapaZoom()'; onmouseout='mapaNormal()' id ='mapa' > */

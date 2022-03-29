@@ -7,13 +7,16 @@
     background-origin:center;
 }
 .textosCadastro{
-    font-weight: bold !important;
+    font-weight: bold!important;
 }
 .botaoCadastroCancelar{
     margin-right: 20px !important;
-    background-color: #330e6200!important; 
     color: #330e62!important;
 }
 .botaoCadastroCadastro{
     background-color: #330e62!important; 
 }
+
+/* input{
+    border: 2px solid #330e62!important;
+} */

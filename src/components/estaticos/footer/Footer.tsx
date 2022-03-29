@@ -17,7 +17,7 @@ function Footer() {
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
                             <Typography variant="h5" align="center" gutterBottom className='textos1'>Siga-nos nas redes sociais </Typography>
                         </Box>
-                        <Box display="flex" alignItems="center" justifyContent="center">
+                        <Box display="flex" alignItems="center" justifyContent="center" className='efeito'> 
                             <a href="https://www.facebook.com/giulia.rafa.dias/" target="_blank">
                                 <FacebookIcon className='redes'/>
                             </a>

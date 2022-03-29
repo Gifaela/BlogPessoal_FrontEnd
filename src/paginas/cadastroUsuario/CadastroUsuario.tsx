@@ -4,6 +4,7 @@ import User from '../../models/User';
 import { cadastroUsuario } from '../../services/Service';
 import { Grid, Box, Typography, Button, TextField } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+
 import './CadastroUsuario.css';
 
 function CadastroUsuario() {
@@ -29,7 +30,7 @@ function CadastroUsuario() {
         })
 
     useEffect(() => { //no momento que eu efetuar o cadastro, o usuário já estiver cadastrado encaminhe o usuário para a página de login
-        if (userResult.id != 0) { // se for diferente de zero, a gente inicializa ele com zero, se for diferente, significa que já existe algum valor cadastrado, indica que o cadastro foi finalizado com sucesso.
+        if (userResult.id !== 0) { // se for diferente de zero, a gente inicializa ele com zero, se for diferente, significa que já existe algum valor cadastrado, indica que o cadastro foi finalizado com sucesso.
             history.push("/login")
         }
     }, [userResult])
@@ -50,9 +51,22 @@ function CadastroUsuario() {
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {//confirma a senha
         e.preventDefault()//não deixa atualizar a tela
-        if (confirmarSenha === user.senha && user.senha.length >=8) {
-            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('Usuario cadastrado com sucesso')
+
+        if (confirmarSenha === user.senha && user.senha.length >= 8) {
+
+            try{
+               await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+                alert('Usuário cadastrado com sucesso')
+
+            }catch (error){
+                console.log(`Error:${error}`)
+
+                alert('Usuário já existentes!')
+
+                setUser({...user, senha:''})/*não emtendi  */
+                setConfirmarSenha('') /*não emtendi  */
+            }
+   
         } else {
             alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
         }
@@ -63,58 +77,71 @@ function CadastroUsuario() {
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
-                        <TextField 
-                        value={user.nome} 
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} 
-                        id='nome' 
-                        label='nome' 
-                        variant='outlined' 
-                        name='nome'
-                        margin='normal' 
-                        fullWidth 
-                        required/>
 
-                        <TextField 
-                        value={user.usuario} 
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} 
-                        type = 'email'
-                        id='usuario' 
-                        label='usuario' 
-                        variant='outlined'
-                        name='usuario'
-                        margin='normal' 
-                        fullWidth 
-                        required/>
+                        <Typography
+                            variant='h3'
+                            gutterBottom color='inherit'
+                            component='h3'
+                            align='center'
+                            className='textosCadastro'>
+                            Cadastrar
+                        </Typography>
 
-                        <TextField 
-                        value={user.senha} 
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} 
-                        id='senha' 
-                        label='senha' 
-                        variant='outlined' 
-                        name='senha' 
-                        margin='normal' 
-                        type='password'
-                        fullWidth 
-                        required/>
+                        <TextField
+                            value={user.nome}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            id='nome'
+                            label='nome'
+                            variant='outlined'
+                            name='nome'
+                            margin='normal'
+                            fullWidth
+                            required
+                            className='' />
 
-                        <TextField 
-                        value={confirmarSenha} 
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} 
-                        id='confirmarSenha' 
-                        label='confirmarSenha' 
-                        variant='outlined' 
-                        name='confirmarSenha' 
-                        margin='normal' 
-                        type='password' 
-                        fullWidth 
-                        required/>
+                        <TextField
+                            value={user.usuario}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            type='email'
+                            id='usuario'
+                            label='usuario'
+                            variant='outlined'
+                            name='usuario'
+                            margin='normal'
+                            fullWidth
+                            required
+                            className='' />
+
+                        <TextField
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            value={user.senha}
+                            id='senha'
+                            label='senha'
+                            variant='outlined'
+                            name='senha'
+                            autoComplete="current-password"
+                            margin='normal' type='password'
+                            fullWidth required />
+
+
+                        <TextField
+                            value={confirmarSenha}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
+                            id='confirmarSenha'
+                            label='confirmarSenha'
+                            variant='outlined'
+                            name='confirmarSenha'
+                            margin='normal'
+                            type='password'
+                            autoComplete='current-password'
+                            fullWidth
+                            required
+                            className='' />
 
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login'>
                                 {/* type submit - invia as informações / variante tem preenchimento de=a cor*/}
-                                <Button variant='contained' color='secondary' className='botaoCadastroCancelar'>
+                                <Button variant="outlined" color='inherit' className='botaoCadastroCancelar'>
                                     Cancelar
                                 </Button>
                             </Link>
@@ -122,7 +149,7 @@ function CadastroUsuario() {
                             <Button type='submit' variant='contained' color='primary' className='botaoCadastroCadastro'>
                                 Cadastrar
                             </Button>
-                     
+
                         </Box>
                     </form>
                 </Box>

@@ -1,0 +1,12 @@
+.text-decorator-none{
+    text-decoration: none;
+}
+.botaoListarPostagemDeletar{
+    margin-right: 20px !important;
+    color: #330e62!important;
+}
+.botaoListarPostagemAtualizar{
+    background-color: #330e62!important; 
+}
+
+ 
