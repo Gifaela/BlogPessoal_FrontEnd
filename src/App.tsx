@@ -6,11 +6,14 @@ import Home from './paginas/home/Home';
 import Footer from './components/estaticos/footer/Footer';
 import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
+import ListaTema from './components/temas/listarTemas/ListaTema';
+import ListaPostagem from './components/postagens/listaPostagem/ListaPostagem';
+import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
+import CadastroPostagem from './components/postagens/cadastroPostagem/CadastroPostagem';
+import CadastroTema from './components/temas/cadastroTema/CadastroTema';
+import DeletarTema from './components/temas/deletarTema/DeletarTema';
 
 import './App.css';
-import ListaTema from './components/temas/listatema/ListaTema';
-import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
-
 
 function App() {
   return (
@@ -22,11 +25,12 @@ function App() {
     <Router>
       <Navbar />
       <Switch>
-        <div style={{minHeight:'100vh'}}>
-        <Route exact path='/'>
+        <div style={{ minHeight: '100vh' }}>
+
+          <Route exact path='/'>  {/*exact exatamente essa rota */}
             <Login />
           </Route>
-          
+
           <Route path='/login'>
             <Login />
           </Route>
@@ -46,6 +50,34 @@ function App() {
           <Route path='/postagens'>
             <ListaPostagem />
           </Route>
+
+          <Route exact path='/formularioPostagem'>
+            <CadastroPostagem />
+          </Route>
+
+          <Route exact path='/formularioPostagem/:id'> {/*put (id) - é para editar*/}
+            <CadastroPostagem />
+          </Route>
+
+          <Route exact path='/formularioTema'>
+            <CadastroTema />
+          </Route>
+
+          <Route exact path='/formularioTema/:id'> {/*put (id) - é para */}
+            <CadastroTema />
+          </Route>
+
+          <Route path='/deletarPostagem/:id'>
+            <DeletarPostagem />
+          </Route>
+
+
+          <Route path='/deletarTema/:id'>
+            <DeletarTema />
+          </Route>
+
+
+
         </div>
       </Switch>
       <Footer />

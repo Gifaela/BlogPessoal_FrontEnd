@@ -119,7 +119,6 @@ function CadastroUsuario() {
                             label='senha'
                             variant='outlined'
                             name='senha'
-                            autoComplete="current-password"
                             margin='normal' type='password'
                             fullWidth required />
 
@@ -133,7 +132,6 @@ function CadastroUsuario() {
                             name='confirmarSenha'
                             margin='normal'
                             type='password'
-                            autoComplete='current-password'
                             fullWidth
                             required
                             className='' />
