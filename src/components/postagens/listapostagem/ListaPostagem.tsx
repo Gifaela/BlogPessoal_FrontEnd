@@ -3,15 +3,22 @@ import { Link, useHistory } from 'react-router-dom'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaPostagem.css';
 import Postagem from '../../../models/Postagem';
-import useLocalStorage from 'react-use-localstorage';
+//import useLocalStorage from 'react-use-localstorage';
 import { busca } from '../../../services/Service';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function ListaPostagem() {
 
   const [posts, setPosts] = useState<Postagem[]>([])
 
-  const [token, setToken] = useLocalStorage('token');
+  //const [token, setToken] = useLocalStorage('token');
+  // useSelector acessa o meu store, e lá vai pegar o token e atribuir a essa constante 14:30 - 37
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+);
 
+  
   let history = useHistory();
 
   useEffect(() => {

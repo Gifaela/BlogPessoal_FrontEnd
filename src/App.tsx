@@ -14,74 +14,78 @@ import CadastroTema from './components/temas/cadastroTema/CadastroTema';
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
 
 import './App.css';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 function App() {
   return (
-    /*Router Comoponete principal de rotas 
-    Switch informa quais páginas irão mudar
-    Route informa qual a url usada
-    exact é para dizer que é exatamente, para não dar
-    */
-    <Router>
-      <Navbar />
-      <Switch>
-        <div style={{ minHeight: '100vh' }}>
+    <Provider store={store}> {/*token*/}
+      {/*Router Comoponete principal de rotas
+      Switch informa quais páginas irão mudar
+      Route informa qual a url usada
+      exact é para dizer que é exatamente, para não dar
+      */}
+      <Router>
+        <Navbar />
+        <Switch>
+          <div style={{ minHeight: '100vh' }}>
 
-          <Route exact path='/'>  {/*exact exatamente essa rota */}
-            <Login />
-          </Route>
+            <Route exact path='/'>  {/*exact exatamente essa rota */}
+              <Login />
+            </Route>
 
-          <Route path='/login'>
-            <Login />
-          </Route>
+            <Route path='/login'>
+              <Login />
+            </Route>
 
-          <Route path='/cadastrousuario'>
-            <CadastroUsuario />
-          </Route>
+            <Route path='/cadastrousuario'>
+              <CadastroUsuario />
+            </Route>
 
-          <Route path='/home'>
-            <Home />
-          </Route>
+            <Route path='/home'>
+              <Home />
+            </Route>
 
-          <Route path='/temas'>
-            <ListaTema />
-          </Route>
+            <Route path='/temas'>
+              <ListaTema />
+            </Route>
 
-          <Route path='/postagens'>
-            <ListaPostagem />
-          </Route>
+            <Route path='/postagens'>
+              <ListaPostagem />
+            </Route>
 
-          <Route exact path='/formularioPostagem'>
-            <CadastroPostagem />
-          </Route>
+            <Route exact path='/formularioPostagem'>
+              <CadastroPostagem />
+            </Route>
 
-          <Route exact path='/formularioPostagem/:id'> {/*put (id) - é para editar*/}
-            <CadastroPostagem />
-          </Route>
+            <Route exact path='/formularioPostagem/:id'> {/*put (id) - é para editar*/}
+              <CadastroPostagem />
+            </Route>
 
-          <Route exact path='/formularioTema'>
-            <CadastroTema />
-          </Route>
+            <Route exact path='/formularioTema'>
+              <CadastroTema />
+            </Route>
 
-          <Route exact path='/formularioTema/:id'> {/*put (id) - é para */}
-            <CadastroTema />
-          </Route>
+            <Route exact path='/formularioTema/:id'> {/*put (id) - é para */}
+              <CadastroTema />
+            </Route>
 
-          <Route path='/deletarPostagem/:id'>
-            <DeletarPostagem />
-          </Route>
-
-
-          <Route path='/deletarTema/:id'>
-            <DeletarTema />
-          </Route>
+            <Route path='/deletarPostagem/:id'>
+              <DeletarPostagem />
+            </Route>
 
 
+            <Route path='/deletarTema/:id'>
+              <DeletarTema />
+            </Route>
 
-        </div>
-      </Switch>
-      <Footer />
-    </Router>
+
+
+          </div>
+        </Switch>
+        <Footer />
+      </Router>
+    </Provider>
   );
 }
 export default App; // exporta para (pasta src>index.tsx) 

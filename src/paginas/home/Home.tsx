@@ -3,22 +3,29 @@ import { Grid, Button, Typography, Box } from '@material-ui/core';
 import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
 import './Home.css';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
-import { useHistory } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { Link, useHistory } from 'react-router-dom';
+//import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/tokensReducer';
 
 function Home() {
 
     let history = useHistory();
 
-    const [token, setToken] = useLocalStorage('token');
+    //const [token, setToken] = useLocalStorage('token');
+    // useSelector acessa o meu store, e lá vai pegar o token e atribuir a essa constante 14:30 - 37
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
-    useEffect(()=>{
-        if(token === ''){
+
+    useEffect(() => {
+        if (token === '') {
             alert('Você precisa estar logado!')
             history.push('/login')
         }
-    },[token])
-    
+    }, [token])
+
 
 
     return (
@@ -38,9 +45,16 @@ function Home() {
 
                         <Box display="flex" justifyContent="center">
                             <Box marginRight={1}>
-                                <ModalPostagem/>
+                                <ModalPostagem />
                             </Box>
-                            <Button variant="outlined" color="inherit" className='botaoVerPostagem'>Ver Postagens</Button>
+                            <Link to='/postagens'>
+                                <Button
+                                    variant="outlined"
+                                    color="inherit"
+                                    className='botaoVerPostagem'>
+                                    Ver Postagens
+                                </Button>
+                            </Link>
                         </Box>
                     </Grid>
                     <Grid item xs={6} container direction="row" justifyContent="center" alignItems="center">

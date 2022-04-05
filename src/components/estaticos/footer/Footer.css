@@ -8,10 +8,13 @@
     height: 60px;
 
 }
-.redes:hover{
+/* .redes:{
 font-size: 60px!important;
 color: black;
-
+} */
+.redes{
+    font-size: 60px!important;
+    color: black;
 }
 .textos1{
     color: black;

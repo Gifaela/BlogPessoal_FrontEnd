@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Typography, Button, Box, Card, CardActions, CardContent } from "@material-ui/core"
 import './DeletarPostagem.css';
 import { useHistory, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+//import useLocalStorage from 'react-use-localstorage';
 import { buscaId, deleteId } from '../../../services/Service';
 import Postagem from '../../../models/Postagem';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function DeletarPostagem() {
 
@@ -12,7 +14,12 @@ function DeletarPostagem() {
 
   const { id } = useParams<{ id: string }>();
 
-  const [token, setToken] = useLocalStorage('token');
+  // const [token, setToken] = useLocalStorage('token');
+  // useSelector acessa o meu store, e lá vai pegar o token e atribuir a essa constante 14:30 - 37
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+
 
   const [postagem, setPostagem] = useState<Postagem>()
 
@@ -37,7 +44,7 @@ function DeletarPostagem() {
     })
   }
 
-  async function sim(){
+  async function sim() {
 
     history.push('/postagens')
 
@@ -49,15 +56,15 @@ function DeletarPostagem() {
       });
 
       alert('Postagem deletado com Sucesso!')
-      
+
     } catch (error) {
       alert('Erro ao deletar')
 
-      
+
     }
   }
 
-  function nao(){
+  function nao() {
     history.push('/postagens')
   }
 
