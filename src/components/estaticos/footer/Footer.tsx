@@ -16,7 +16,7 @@ function Footer() {
         (state) => state.tokens
     );
 
-    var footerComponet;
+    var footerComponet,
 
     if (token !== '') {
         footerComponet =
