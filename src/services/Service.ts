@@ -18,25 +18,25 @@ export const login = async (url: any, dados: any, setDado: any) => {
 }
 
 //Busca as postagens/temas com url e me trás com o token(header)
-export const busca = async (url: any, setDado: any, header: any) =>{ // header é o token 
+export const busca = async (url: any, setDado: any, header: any) => { // header é o token 
     const resposta = await api.get(url, header)
     setDado(resposta.data)
 }
-export const buscaId = async (url: any, setDado: any, header: any) =>{
+export const buscaId = async (url: any, setDado: any, header: any) => {
     const resposta = await api.get(url, header)
     setDado(resposta.data)
 }
 
 export const post = async (url: any, dados: any, setDado: any, header: any) => {
-    const resposta = await api.post(url,dados,header)
+    const resposta = await api.post(url, dados, header)
     setDado(resposta.data)
 }
 
 export const put = async (url: any, dados: any, setDado: any, header: any) => {
-    const resposta = await api.put(url,dados,header)
+    const resposta = await api.put(url, dados, header)
     setDado(resposta.data)
 }
 
 export const deleteId = async (url: any, header: any) => {
-    await api.delete(url,header)
+    await api.delete(url, header)
 }

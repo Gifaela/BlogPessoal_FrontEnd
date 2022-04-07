@@ -6,6 +6,7 @@ import { Grid, Box, Typography, Button, TextField } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 import './CadastroUsuario.css';
+import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
 
@@ -54,21 +55,51 @@ function CadastroUsuario() {
 
         if (confirmarSenha === user.senha && user.senha.length >= 8) {
 
-            try{
-               await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-                alert('Usuário cadastrado com sucesso')
+            try {
+                await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+                //alert('Usuário cadastrado com sucesso')
+                toast.success('Usuário cadastrado com sucesso!', {
+                    position: "top-right", // localização da notificação 
+                    autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+                    hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+                    closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+                    pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+                    draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+                    theme: 'colored',
+                    progress: undefined,
+                });
 
-            }catch (error){
+            } catch (error) {
                 console.log(`Error:${error}`)
 
-                alert('Usuário já existentes!')
+               // alert('Usuário já existentes!')
+                toast.error('Usuário já existentes!', {
+                    position: "top-right", // localização da notificação 
+                    autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+                    hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+                    closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+                    pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+                    draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+                    theme: 'colored',
+                    progress: undefined,
+                });
 
-                setUser({...user, senha:''})/*não emtendi  */
+                setUser({ ...user, senha: '' })/*não emtendi  */
                 setConfirmarSenha('') /*não emtendi  */
             }
-   
+
         } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+          // alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+            toast.error('Dados inconsistentes. Favor verificar as informações de cadastro!.', {
+                position: "top-right", // localização da notificação 
+                autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+                hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+                closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+                pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+                draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+                theme: 'colored',
+                progress: undefined,
+            });
         }
     }
     return (

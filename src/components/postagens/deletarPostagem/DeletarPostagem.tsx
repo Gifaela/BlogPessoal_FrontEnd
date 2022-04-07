@@ -7,6 +7,7 @@ import { buscaId, deleteId } from '../../../services/Service';
 import Postagem from '../../../models/Postagem';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function DeletarPostagem() {
 
@@ -25,7 +26,17 @@ function DeletarPostagem() {
 
   useEffect(() => {
     if (token === '') {
-      alert('Você precisa estar logado!')
+      //alert('Você precisa estar logado!')
+      toast.error('Você precisa estar logado!', {
+        position: "top-right", // localização da notificação 
+        autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+        hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+        closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+        pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+        draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+        theme: 'colored',
+        progress: undefined,
+      });
       history.push('/login')
     }
   }, [token])
@@ -55,10 +66,31 @@ function DeletarPostagem() {
         }
       });
 
-      alert('Postagem deletado com Sucesso!')
+     // alert('Postagem deletado com Sucesso!')
+      toast.success('Postagem deletado com sucesso!', {
+        position: "top-right", // localização da notificação 
+        autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+        hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+        closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+        pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+        draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+        theme: 'colored',
+        progress: undefined,
+      });
+      
 
     } catch (error) {
-      alert('Erro ao deletar')
+     // alert('Erro ao deletar')
+      toast.error('Erro ao deletar!', {
+        position: "top-right", // localização da notificação 
+        autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+        hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+        closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+        pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+        draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+        theme: 'colored',
+        progress: undefined,
+      });
 
 
     }

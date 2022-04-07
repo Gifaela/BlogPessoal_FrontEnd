@@ -7,6 +7,7 @@ import Postagem from '../../../models/Postagem';
 import { busca } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function ListaPostagem() {
 
@@ -23,7 +24,18 @@ function ListaPostagem() {
 
   useEffect(() => {
     if (token === "") {
-      alert('Você precisa estar logado!')
+      //alert('Você precisa estar logado!')
+      toast.info('Você precisa estar logado!', {
+        position: "top-right", // localização da notificação 
+        autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+        hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+        closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+        pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+        draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+        theme: 'colored',
+        progress: undefined,
+      });
+      
       history.push('/login')
     }
   }, [token])

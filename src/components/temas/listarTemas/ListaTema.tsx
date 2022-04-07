@@ -3,14 +3,22 @@ import { Link, useHistory } from 'react-router-dom'
 import { Box, Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import './ListaTema.css';
 import Tema from '../../../models/Tema';
-import useLocalStorage from 'react-use-localstorage';
+//import useLocalStorage from 'react-use-localstorage';
 import { busca } from '../../../services/Service';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 function ListaTema() {
 
   const [temas, setTemas] = useState<Tema[]>([])
 
-  const [token, setToken] = useLocalStorage('token');
+  //const [token, setToken] = useLocalStorage('token');
+
+   // useSelector acessa o meu store, e lá vai pegar o token e atribuir a essa constante 14:30 - 37
+   const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+);
 
   let history = useHistory();
   //useEffect + useHistory - verifica se o token esta vaziu ou não, se estiver vaziu, o History direciona para tela de login
@@ -18,7 +26,17 @@ function ListaTema() {
 
   useEffect(() => {
     if (token =='') {
-      alert('Você deve estar logado!')
+      //alert('Você deve estar logado!')
+      toast.info('Você precisa estar logado!', {
+        position: "top-right", // localização da notificação 
+        autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+        hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+        closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+        pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+        draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+        theme: 'colored',
+        progress: undefined,
+    });
       history.push('login')
     }
   }, [token])

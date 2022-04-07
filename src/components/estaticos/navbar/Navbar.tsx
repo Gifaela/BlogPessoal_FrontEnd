@@ -6,6 +6,8 @@ import './Navbar.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { addToken } from '../../../store/tokens/action';
+import { toast } from 'react-toastify';
+
 //import useLocalStorage from 'react-use-localstorage';
 
 function Navbar() {
@@ -21,7 +23,17 @@ function Navbar() {
 
     function goLogout() {
         dispatch(addToken(''))// adicionando um token vazio, para deslogar 
-        alert('Usuário deslogado!')
+        //alert('Usuário deslogado!')
+        toast.info('Usuário deslogado!',{
+            position:"top-right", // localização da notificação 
+            autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+            hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+            closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+            pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+            draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+            theme: 'colored',
+            progress: undefined,
+        });
         history.push('login')
     }
 

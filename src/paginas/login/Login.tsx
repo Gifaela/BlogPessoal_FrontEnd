@@ -9,6 +9,7 @@ import UserLogin from '../../models/UserLogin';
 import './Login.css';
 import { useDispatch } from 'react-redux';
 import { addToken } from '../../store/tokens/action';
+import { toast } from 'react-toastify';
 
 
 function Login() {
@@ -55,10 +56,30 @@ function Login() {
             concateno com a rota para fazer login, passo os dados dessa rota (userLogin), pego o token e gravo no 
             Logar Storage.*/
 
-            alert('Usuário logado com sucesso!')
+            //alert('Usuário logado com sucesso!')
+            toast.success('Usuário logado com sucesso!',{
+                position:"top-right", // localização da notificação 
+                autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+                hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+                closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+                pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+                draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+                theme: 'colored',
+                progress: undefined,
+            });
 
         } catch (erro) {
-            alert('Dados do usuário inconsistentes. Erro ao logar!')
+            //alert('Dados do usuário inconsistentes. Erro ao logar!')
+            toast.error('Dados do usuário inconsistentes. Erro ao logar!', {
+                position: "top-right", // localização da notificação 
+                autoClose: 2000,//em que momento que essa notificação deve sumir 2000 mili segundos 
+                hideProgressBar: false, //Se eu devo ou não ocultar a barrinha de proguresso(false mostra a barrinha).
+                closeOnClick: true, // Se clicar o alerta some(false permanece ao clicar)
+                pauseOnFocusLoss: false, //Pausa quando passa o mouse na notificação (false, não para, após os 2 segundos ela some )
+                draggable: false, //Opção de moder a barrinha de notificação (false não deixa mover)
+                theme: 'colored',
+                progress: undefined,
+              });
 
         }
     }

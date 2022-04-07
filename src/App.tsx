@@ -12,19 +12,22 @@ import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPosta
 import CadastroPostagem from './components/postagens/cadastroPostagem/CadastroPostagem';
 import CadastroTema from './components/temas/cadastroTema/CadastroTema';
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
-
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 
 function App() {
   return (
     <Provider store={store}> {/*token*/}
       {/*Router Comoponete principal de rotas
-      Switch informa quais páginas irão mudar
+      Switch informa quais páginas irão mudar.
       Route informa qual a url usada
       exact é para dizer que é exatamente, para não dar
       */}
+      <ToastContainer/>{/*estilizar o aletra/notificação*/}
       <Router>
         <Navbar />
         <Switch>
