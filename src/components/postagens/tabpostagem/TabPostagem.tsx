@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { AppBar, Tab, Tabs, Typography, Box } from '@material-ui/core';
 import { TabContext, TabPanel } from '@material-ui/lab';
-import ListaPostagem from '../../../components/postagens/listapostagem/ListaPostagem';
-import './TabPostagem.css';
 
+import './TabPostagem.css';
+import ListaPostagem from '../../../components/postagens/listapostagem/ListaPostagem'
 
 function TabPostagem() {
     const [value, setValue] = useState('1') //asmazena o valor da tab (setValue) - tem que iniciar com um valor useState inicia com valor 1 

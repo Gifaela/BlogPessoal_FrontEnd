@@ -7,7 +7,7 @@ import Footer from './components/estaticos/footer/Footer';
 import Login from './paginas/login/Login';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import ListaTema from './components/temas/listarTemas/ListaTema';
-import ListaPostagem from './components/postagens/listaPostagem/ListaPostagem';
+import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
 import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
 import CadastroPostagem from './components/postagens/cadastroPostagem/CadastroPostagem';
 import CadastroTema from './components/temas/cadastroTema/CadastroTema';
