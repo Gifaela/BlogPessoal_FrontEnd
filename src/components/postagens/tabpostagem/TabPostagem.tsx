@@ -3,7 +3,7 @@ import { AppBar, Tab, Tabs, Typography, Box } from '@material-ui/core';
 import { TabContext, TabPanel } from '@material-ui/lab';
 
 import './TabPostagem.css';
-import ListaPostagem from '../../postagens/listapostagem/ListaPostagem';
+import ListaPostagem from '../../../components/postagens/listapostagem/ListaPostagem';
 
 
 
