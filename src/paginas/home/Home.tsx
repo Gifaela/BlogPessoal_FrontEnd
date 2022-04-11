@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { Grid, Button, Typography, Box } from '@material-ui/core';
-import TabPostagem from '../../components/postagens/tabPostagem/TabPostagem';
+
 import './Home.css';
-import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+
 import { Link, useHistory } from 'react-router-dom';
 //import useLocalStorage from 'react-use-localstorage';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 
 function Home() {
 
